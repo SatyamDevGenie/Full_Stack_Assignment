@@ -12,7 +12,7 @@ const FilterTabs = ({ filter, setFilter }) => {
   ];
 
   return (
-    <div className="mb-8 overflow-x-auto">
+    <div className="mb-6 sm:mb-8 overflow-x-auto scrollbar-hide">
       <div className="flex gap-2 min-w-max pb-2">
         {tabs.map((tab) => (
           <motion.button
@@ -20,13 +20,13 @@ const FilterTabs = ({ filter, setFilter }) => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setFilter(tab.id)}
-            className={`px-4 py-2 rounded-lg font-medium transition flex items-center gap-2 whitespace-nowrap ${
+            className={`px-3 sm:px-4 py-2 rounded-lg font-medium transition flex items-center gap-1.5 sm:gap-2 whitespace-nowrap text-xs sm:text-sm ${
               filter === tab.id
                 ? 'bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg'
                 : 'bg-white text-gray-700 hover:bg-gray-100'
             }`}
           >
-            <span>{tab.icon}</span>
+            <span className="text-sm sm:text-base">{tab.icon}</span>
             <span>{tab.label}</span>
           </motion.button>
         ))}

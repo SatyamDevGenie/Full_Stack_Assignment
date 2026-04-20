@@ -50,14 +50,14 @@ const TaskCard = ({ task }) => {
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.9 }}
         whileHover={{ y: -5 }}
-        className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all p-6 border border-gray-100"
+        className="bg-white rounded-xl shadow-md hover:shadow-xl transition-all p-4 sm:p-6 border border-gray-100"
       >
-        <div className="flex justify-between items-start mb-4">
-          <h3 className="text-xl font-bold text-gray-800 flex-1 pr-2">
+        <div className="flex justify-between items-start mb-3 sm:mb-4 gap-2">
+          <h3 className="text-lg sm:text-xl font-bold text-gray-800 flex-1 pr-2 break-words">
             {task.title}
           </h3>
           <span
-            className={`px-3 py-1 rounded-full text-xs font-semibold border ${getStatusColor(
+            className={`px-2 sm:px-3 py-1 rounded-full text-xs font-semibold border whitespace-nowrap ${getStatusColor(
               task.status
             )}`}
           >
@@ -65,18 +65,18 @@ const TaskCard = ({ task }) => {
           </span>
         </div>
 
-        <p className="text-gray-600 mb-4 line-clamp-3">{task.description}</p>
+        <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4 line-clamp-3">{task.description}</p>
 
-        <div className="space-y-2 mb-4">
-          <div className="flex items-center gap-2 text-sm text-gray-500">
-            <FiCalendar className="text-blue-500" />
-            <span>Due: {formatDate(task.dueDate)}</span>
+        <div className="space-y-2 mb-3 sm:mb-4">
+          <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-500">
+            <FiCalendar className="text-blue-500 flex-shrink-0" />
+            <span className="truncate">Due: {formatDate(task.dueDate)}</span>
           </div>
 
           {task.assignee && (
-            <div className="flex items-center gap-2 text-sm">
-              <FiUser className="text-purple-500" />
-              <span className="text-gray-600">
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
+              <FiUser className="text-purple-500 flex-shrink-0" />
+              <span className="text-gray-600 truncate">
                 {isCreator ? (
                   <>
                     Assigned to:{' '}
@@ -97,7 +97,7 @@ const TaskCard = ({ task }) => {
           )}
 
           {!task.assignee && (
-            <div className="flex items-center gap-2 text-sm">
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
               <span className="px-2 py-1 bg-indigo-100 text-indigo-700 rounded-md text-xs font-medium">
                 Personal Task
               </span>
@@ -105,15 +105,15 @@ const TaskCard = ({ task }) => {
           )}
         </div>
 
-        <div className="flex gap-2 pt-4 border-t border-gray-100">
+        <div className="flex gap-2 pt-3 sm:pt-4 border-t border-gray-100">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsEditModalOpen(true)}
-            className="flex-1 flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg transition"
+            className="flex-1 flex items-center justify-center gap-1.5 sm:gap-2 bg-blue-500 hover:bg-blue-600 text-white px-3 sm:px-4 py-2 rounded-lg transition text-sm sm:text-base"
           >
-            <FiEdit2 />
-            Edit
+            <FiEdit2 className="text-sm sm:text-base" />
+            <span>Edit</span>
           </motion.button>
 
           {isCreator && (
@@ -121,9 +121,9 @@ const TaskCard = ({ task }) => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleDelete}
-              className="flex items-center justify-center gap-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg transition"
+              className="flex items-center justify-center gap-1.5 sm:gap-2 bg-red-500 hover:bg-red-600 text-white px-3 sm:px-4 py-2 rounded-lg transition"
             >
-              <FiTrash2 />
+              <FiTrash2 className="text-sm sm:text-base" />
             </motion.button>
           )}
         </div>

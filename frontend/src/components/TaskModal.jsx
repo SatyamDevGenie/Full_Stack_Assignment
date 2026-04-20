@@ -124,21 +124,21 @@ const TaskModal = ({ isOpen, onClose, task = null }) => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.9, opacity: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+            className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto m-4"
           >
-            <div className="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 flex justify-between items-center">
-              <h2 className="text-2xl font-bold text-gray-800">
+            <div className="sticky top-0 bg-white border-b border-gray-200 px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center z-10">
+              <h2 className="text-xl sm:text-2xl font-bold text-gray-800">
                 {isEditing ? 'Edit Task' : 'Create New Task'}
               </h2>
               <button
                 onClick={onClose}
-                className="text-gray-400 hover:text-gray-600 transition"
+                className="text-gray-400 hover:text-gray-600 transition p-1"
               >
-                <FiX className="text-2xl" />
+                <FiX className="text-xl sm:text-2xl" />
               </button>
             </div>
 
-            <form onSubmit={handleSubmit} className="p-6 space-y-6">
+            <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Title <span className="text-red-500">*</span>
@@ -149,7 +149,7 @@ const TaskModal = ({ isOpen, onClose, task = null }) => {
                   value={formData.title}
                   onChange={handleChange}
                   disabled={!canEditTitle}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition disabled:bg-gray-100 disabled:cursor-not-allowed"
                   placeholder="Enter task title"
                 />
               </div>
@@ -164,12 +164,12 @@ const TaskModal = ({ isOpen, onClose, task = null }) => {
                   onChange={handleChange}
                   disabled={!canEditDescription}
                   rows="4"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition disabled:bg-gray-100 disabled:cursor-not-allowed"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition disabled:bg-gray-100 disabled:cursor-not-allowed"
                   placeholder="Enter task description"
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
                     Status <span className="text-red-500">*</span>
@@ -179,7 +179,7 @@ const TaskModal = ({ isOpen, onClose, task = null }) => {
                     value={formData.status}
                     onChange={handleChange}
                     disabled={!canEditStatus}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition disabled:bg-gray-100 disabled:cursor-not-allowed"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition disabled:bg-gray-100 disabled:cursor-not-allowed"
                   >
                     <option value="Todo">Todo</option>
                     <option value="In Progress">In Progress</option>
@@ -197,7 +197,7 @@ const TaskModal = ({ isOpen, onClose, task = null }) => {
                     value={formData.dueDate}
                     onChange={handleChange}
                     disabled={!canEditDueDate}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition disabled:bg-gray-100 disabled:cursor-not-allowed"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition disabled:bg-gray-100 disabled:cursor-not-allowed"
                   />
                 </div>
               </div>
@@ -211,7 +211,7 @@ const TaskModal = ({ isOpen, onClose, task = null }) => {
                     name="assignee"
                     value={formData.assignee}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
+                    className="w-full px-3 sm:px-4 py-2.5 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition"
                   >
                     <option value="">None (Personal Task)</option>
                     {users
@@ -226,8 +226,8 @@ const TaskModal = ({ isOpen, onClose, task = null }) => {
               )}
 
               {isEditing && task.assignee && (
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <p className="text-sm text-blue-800">
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-3 sm:p-4">
+                  <p className="text-xs sm:text-sm text-blue-800">
                     {isAssignee && (
                       <span>
                         <strong>Note:</strong> As the assignee, you can only update the status.
@@ -242,12 +242,12 @@ const TaskModal = ({ isOpen, onClose, task = null }) => {
                 </div>
               )}
 
-              <div className="flex gap-4 pt-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition"
+                  className="flex-1 bg-gradient-to-r from-blue-500 to-purple-600 text-white py-2.5 sm:py-3 rounded-lg font-semibold hover:shadow-lg transition text-sm sm:text-base"
                 >
                   {isEditing ? 'Update Task' : 'Create Task'}
                 </motion.button>
@@ -256,7 +256,7 @@ const TaskModal = ({ isOpen, onClose, task = null }) => {
                   whileTap={{ scale: 0.98 }}
                   type="button"
                   onClick={onClose}
-                  className="px-6 bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 rounded-lg font-semibold transition"
+                  className="w-full sm:w-auto px-6 bg-gray-200 hover:bg-gray-300 text-gray-700 py-2.5 sm:py-3 rounded-lg font-semibold transition text-sm sm:text-base"
                 >
                   Cancel
                 </motion.button>
