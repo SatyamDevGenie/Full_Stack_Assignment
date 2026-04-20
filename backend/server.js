@@ -16,25 +16,9 @@ const app = express();
 // Trust proxy for accurate IP addresses
 app.set('trust proxy', 1);
 
-// CORS Configuration
-const allowedOrigins = [
-  'http://localhost:5173',
-  'http://localhost:3000',
-  'https://satyam-task-management.vercel.app',
-  // Add your actual frontend deployment URL here
-];
-
+// CORS Configuration - Allow all origins for deployed frontend
 app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  },
+  origin: true, // Accept all origins
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
@@ -46,7 +30,7 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 app.use(cookieParser());
 
 // API Check
-app.get('/', (req, res) => {
+app.get('/', (_req, res) => {
   res.send('✅ API is running...');
 });
 
