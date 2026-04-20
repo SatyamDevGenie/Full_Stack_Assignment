@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import API_BASE_URL from '../../config/api';
 
 const initialState = {
   tasks: [],
@@ -24,7 +25,7 @@ export const getTasks = createAsyncThunk(
         },
       };
 
-      const { data } = await axios.get('/api/tasks', config);
+      const { data } = await axios.get(`${API_BASE_URL}/api/tasks`, config);
       return data;
     } catch (error) {
       return rejectWithValue(
@@ -52,7 +53,7 @@ export const createTask = createAsyncThunk(
         },
       };
 
-      const { data } = await axios.post('/api/tasks', taskData, config);
+      const { data } = await axios.post(`${API_BASE_URL}/api/tasks`, taskData, config);
       return data;
     } catch (error) {
       return rejectWithValue(
@@ -80,7 +81,7 @@ export const updateTask = createAsyncThunk(
         },
       };
 
-      const { data } = await axios.put(`/api/tasks/${id}`, taskData, config);
+      const { data } = await axios.put(`${API_BASE_URL}/api/tasks/${id}`, taskData, config);
       return data;
     } catch (error) {
       return rejectWithValue(
@@ -107,7 +108,7 @@ export const deleteTask = createAsyncThunk(
         },
       };
 
-      await axios.delete(`/api/tasks/${id}`, config);
+      await axios.delete(`${API_BASE_URL}/api/tasks/${id}`, config);
       return id;
     } catch (error) {
       return rejectWithValue(

@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import API_BASE_URL from '../../config/api';
 
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
@@ -22,7 +23,7 @@ export const register = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       };
-      const { data } = await axios.post('/api/auth/register', userData, config);
+      const { data } = await axios.post(`${API_BASE_URL}/api/auth/register`, userData, config);
       localStorage.setItem('userInfo', JSON.stringify(data));
       return data;
     } catch (error) {
@@ -45,7 +46,7 @@ export const login = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       };
-      const { data } = await axios.post('/api/auth/login', credentials, config);
+      const { data } = await axios.post(`${API_BASE_URL}/api/auth/login`, credentials, config);
       localStorage.setItem('userInfo', JSON.stringify(data));
       return data;
     } catch (error) {
@@ -73,7 +74,7 @@ export const getAllUsers = createAsyncThunk(
         },
       };
 
-      const { data } = await axios.get('/api/auth/users', config);
+      const { data } = await axios.get(`${API_BASE_URL}/api/auth/users`, config);
       return data;
     } catch (error) {
       return rejectWithValue(
