@@ -285,15 +285,11 @@ my-task/
 
 ## 📱 Screenshots
 
-### Login Page
+### Dashboard
 ![Login Page](./screenshots/Screenshot%20(119).png)
 *Modern gradient design with smooth animations and form valida
-### Dashboard
-Ta# Dashboard
-![Dashboard](./screenshots/Screenshot%20(120).png)
-*Task cards with status badges, filter tabs, and responsive grid layout*
 
-### Task Management
+### MongoDB 2 sample users data
 ![Task Modal](./screenshots/Screenshot%20(121).png)
 *Create/Edit tasks with role-based permissions and user assignment*
 
