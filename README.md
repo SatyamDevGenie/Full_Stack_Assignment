@@ -455,9 +455,9 @@ npm run lint           # Run ESLint
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@yourusername] https://github.com/SatyamDevGenie
-- Email: your.email@example.com
-- LinkedIn: [Your LinkedIn] https://www.linkedin.com/in/satyam-sawant-a257802a7/
+- GitHub:https://github.com/SatyamDevGenie
+- Email:satyamsawant54@gmail.com
+- LinkedIn:https://www.linkedin.com/in/satyam-sawant-a257802a7/
 
 ## 📄 License
 
