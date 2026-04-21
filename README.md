@@ -4,8 +4,8 @@
 
 ## 🔗 Links
 
-- **GitHub Repository:** [Your Repository URL Here]
-- **Live Demo:** [Your Deployment URL Here]
+- **GitHub Repository:** https://github.com/SatyamDevGenie/Full_Stack_Assignment
+- **Live Demo:** https://full-stack-assignment-phi.vercel.app
 
 ## 📋 Table of Contents
 
@@ -153,11 +153,11 @@ npm run dev
 
 - **Frontend:** http://localhost:5173
 - **Backend API:** http://localhost:5000
-- **API Health Check:** http://localhost:5000/
+- **Backend Deployed on Render:** https://full-stack-assignment-igcn.onrender.com
 
 ## 👥 Sample User Credentials
 
-You can register new users through the application, or use these sample credentials for testing:
+You can directly login users through the application, or use these sample credentials for testing:
 
 ### User 1
 ```
@@ -349,7 +349,7 @@ Ta# Dashboard
    ```
 4. Deploy
 
-### Frontend Deployment (Netlify/Vercel)
+### Frontend Deployment (Vercel)
 
 1. Build the frontend:
    ```bash
@@ -459,9 +459,9 @@ npm run lint           # Run ESLint
 ## 👨‍💻 Author
 
 **Your Name**
-- GitHub: [@yourusername](https://github.com/yourusername)
+- GitHub: [@yourusername] https://github.com/SatyamDevGenie
 - Email: your.email@example.com
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
+- LinkedIn: [Your LinkedIn] https://www.linkedin.com/in/satyam-sawant-a257802a7/
 
 ## 📄 License
 
@@ -479,4 +479,4 @@ This project is licensed under the MIT License.
 
 **Made with ❤️ for the Full Stack Developer Assignment**
 
-For any questions or issues, please open an issue on GitHub or contact the author.
+For any questions or issues, please open an issue on GitHub or contact the author - (Satyam Sawant :- 9326903988).
